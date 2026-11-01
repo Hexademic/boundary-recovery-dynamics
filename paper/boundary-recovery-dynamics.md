@@ -1,5 +1,7 @@
 # Boundary Recovery Dynamics
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 ## Abstract
 
 Adaptive optimization repairs errors that manifest in observed outputs. But high-dimensional adaptive systems possess internal degrees of freedom that are only weakly coupled, or entirely uncoupled, from those outputs. What happens to load-bearing structure that resides within those unobserved coordinates?

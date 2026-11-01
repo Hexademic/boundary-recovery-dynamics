@@ -1,5 +1,7 @@
 # Abstract
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 Adaptive optimization repairs errors that manifest in observed outputs. But high-dimensional adaptive systems possess internal degrees of freedom that are only weakly coupled, or entirely uncoupled, from those outputs. What happens to load-bearing structure that resides within those unobserved coordinates?
 
 Current evaluation paradigms assess post-disruption recovery almost exclusively by measuring loss or accuracy on valid demonstration data. In doing so, they conflate an agent's behavioral task execution with its capacity to discriminate physical, topological, and logical boundaries. This monograph demonstrates that when an adaptive neural system experiences severe parameter disruption, standard supervised retraining rapidly restores observable task fluency while leaving unobserved, load-bearing invariant boundaries severely degraded.

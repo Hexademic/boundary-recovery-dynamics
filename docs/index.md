@@ -1,5 +1,7 @@
 # Project Overview
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 This repository is the canonical archive and working monograph for Boundary Recovery Dynamics: a research program on observability, recoverability, and invariant-preserving adaptation in adaptive neural systems.
 
 ## Working target: Persistent Cognitive Agent (PCA)
@@ -33,6 +35,8 @@ This repository supports a research program aimed at understanding and evaluatin
 - `docs/pca-bootstrapping-protocol.md` — runtime protocol for invariant-bound adaptation
 - `manuscript/README.md` — manuscript archive and chapter map
 - `paper/README.md` — publication framing and paper summary
+- `RESULTS-STATUS.md` — what is and is not verified in the reported results
+- `checks/` — the script that recomputes the reported statistics, and its output
 - `Boundary Recovery Dynamics _261031_151815.txt` — preserved original manuscript source
 - `CITATION.cff` — citation metadata
 - `LICENSE` — project license
