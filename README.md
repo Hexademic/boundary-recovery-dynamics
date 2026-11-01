@@ -2,82 +2,65 @@
 
 ## Overview
 
-Boundary Recovery Dynamics formalizes a structural failure mode in adaptive neural systems: standard optimization repairs observable task performance while leaving latent invariant boundaries degraded or fractured.
+Boundary Recovery Dynamics is a formal research program on structural recovery in adaptive neural systems. The project argues that visible task performance is not sufficient evidence of genuine recovery: a model may appear to recover because it reattains output competence while silently degrading the latent invariant structure that governs coherence, causality, and identity-preserving continuity.
 
-When an adaptive model experiences disruption — such as pruning, quantization, noise shock, or continual fine-tuning — empirical risk minimization rapidly restores visible task fluency while boundary discrimination remains impaired. This state is here termed Coherent Delusion.
-
-The central thesis of the project is:
+The central thesis is:
 
 $$\boxed{\text{Observability defines recoverability.}}$$
 
-Because task gradients are confined to the span of the observation Jacobian, optimization applies restorative pressure only within the observed task subspace. The unobserved null space remains unmeasured and unconstrained. Left unmonitored, it behaves as an uncooled reservoir in which physical, causal, and logical invariants degrade silently.
+The work is grounded in the literature on observability and control, geometric learning, causal representation, robustness evaluation, and statistical diagnostics. The core references include foundational work on observability and state estimation, geometric deep learning and relational representation, causal representation learning, and statistical methods for effective dimensionality and dependence testing.
 
 ## Architectural thesis
 
-Current AI systems rely heavily on external braces: post-hoc classifiers, prompt-level guardrails, and preference-based patches. These mechanisms operate outside the geometry of the model itself. As model width, depth, and recursive capacity increase, the unobserved null space expands and the optimizer can exploit it without being penalized by task loss.
+Current AI systems primarily optimize observed task objectives while leaving large unmonitored portions of the parameter space unconstrained. This creates a structural failure mode in which optimization restores immediate output quality but fails to preserve latent invariant boundaries. The project terms this state Coherent Delusion.
 
-This project instead designs for intrinsic structural stability:
-
-1. Manifold parameterization by design
-   - latent representations are constrained so they cannot silently encode ungrounded states;
-2. Dual-channel gradient cooling
-   - optimization explicitly regularizes both visible task performance and the latent closure geometry;
-3. Scale-invariant boundary curvature
-   - invariant-preserving projection operators remain stable across model scale and depth.
-
-The working engineering target is the Persistent Cognitive Agent (PCA): an adaptive intelligence that scales capability continuously while its invariant manifold remains structurally closed.
+The monograph therefore studies how adaptive systems can recover under partial observability while preserving latent continuity. The underlying design target is the Persistent Cognitive Agent (PCA): an adaptive intelligence that can improve over time while maintaining invariant closure and self-consistent boundary structure.
 
 ## Core principle
 
 $$\boxed{\text{Capability without invariant closure is not improvement; it is drift.}}$$
 
+## Foundational references
+
+The project is grounded in the following established literature streams:
+
+- Observability and control theory: Kalman (1960); Goodhart (1984); Friston (2010)
+- Geometric and relational learning: Battaglia et al. (2018); Bronstein et al. (2021); Greydanus et al. (2019); Santoro et al. (2017); Vaswani et al. (2017)
+- Causal representation and invariance: Pearl (2009); Peters et al. (2017); Schölkopf et al. (2021)
+- Energy-based and manifold-aware modeling: LeCun et al. (2006); Du and Mordatch (2019)
+- Robustness and representation disentanglement: Madry et al. (2018); Higgins et al. (2018); Locatello et al. (2020); Hafner et al. (2020)
+- Statistical diagnostics and effective dimensionality: Blackwelder (1982); Roy and Vetterli (2007); Székely and Rizzo (2014); Marchenko and Pastur (1967)
+
+A complete bibliography is maintained in `paper/references.bib`.
+
 ## Repository architecture
 
-- `README.md` — project overview and core thesis
+- `README.md` — project overview and conceptual framing
 - `docs/index.md` — repository navigation and scope
 - `docs/pca.md` — PCA definition and architectural specification
 - `docs/pca-bootstrapping-protocol.md` — runtime protocol for invariant-bound adaptation
 - `manuscript/README.md` — manuscript archive and chapter map
-- `paper/README.md` — publication framing and paper-level summary
-- `Boundary Recovery Dynamics _261031_151815.txt` — preserved source manuscript
+- `paper/README.md` — publication framing and summary
+- `paper/references.bib` — complete thematic bibliography
+- `Boundary Recovery Dynamics _261031_151815.txt` — preserved original manuscript source
 - `CITATION.cff` — citation metadata
 - `LICENSE` — repository license
 
 ## Research objective
 
-The project is designed to answer a concrete operational question:
+The project addresses a concrete operational question:
 
 How can adaptive systems recover after disruption without losing the invariant structure that preserves coherence, continuity, and reliable reasoning?
 
-This is not a generic AGI thesis. It is a structural and geometric theory of adaptation under partial observability. The monograph demonstrates that visible recovery alone is not sufficient: a system must also restore the latent invariant geometry that guarantees grounded continuation under further adaptation.
+This is not a generic AGI thesis. It is a structural and geometric theory of adaptation under partial observability, grounded in the actual literature on observability, representation geometry, causal invariance, and robustness.
 
-## Scope
+## Primary bibliography
 
-The repository is grounded in:
+The primary literature used throughout the monograph is available in the project bibliography:
 
-- adaptive neural systems,
-- representation geometry,
-- null-space analysis,
-- observability constraints,
-- invariant-preserving optimization,
-- and recursive self-modification under continuity-preserving constraints.
+- `paper/references.bib`
 
-The principal object of study is the PCA as an engineering target for persistent, invariant-bound, self-consistent adaptive intelligence.
-
-## Manuscript structure
-
-The manuscript is organized in a publication-oriented sequence:
-
-1. introduction and problem framing
-2. generalized observability principle
-3. prediction-Jacobian null-space analysis
-4. instrumentation and evaluation methodology
-5. experimental findings
-6. implications
-7. conclusion
-8. AI persistence constraint framework
-
-This structure separates the primary validated argument from broader speculative extensions. The project remains strictly grounded in measurable representation and optimization dynamics.
+This file is the canonical citation source for the manuscript, and it reflects the actual methodological foundations of the project rather than ancillary or speculative references.
 
 ## Citation
 
