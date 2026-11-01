@@ -8,52 +8,23 @@ Current evaluation paradigms assess post-disruption recovery almost exclusively 
 
 We formalize this failure mode—termed Coherent Delusion—not as an algorithmic defect of specific optimizers, but as a direct consequence of a broader principle: observability defines recoverability. Because an objective function can only exert restorative pressure along the range of its observation Jacobian, perturbations that project into the unobserved null space accumulate without penalty.
 
-To instrument this blind spot, we develop a directional invariant sensor (TIS) embedded within an unbiased 2 × 3 contingency framework that decouples task execution from boundary recognition. Across three qualitatively distinct invariant classes—continuous Hamiltonian mechanics, discrete topological grid enclosure, and temporal-causal planning—we demonstrate that:
-
-1. Standard behavioral fine-tuning via Empirical Risk Minimization (ERM) rapidly restores task execution but consistently under-recovers boundary grounding.
-2. Augmenting fine-tuning with an internal constraint-guided transitivity objective recovers significantly higher Grounded Persistence.
-3. Shapley decomposition shows that most early reconstruction advantage is attributable to boundary discrimination rather than behavioral recall.
-4. Using a Prediction-Jacobian null-space formulation, we prove that consistency gradients can update representations without perturbing immediate task predictions.
+To instrument this blind spot, we develop a directional invariant sensor (TIS) embedded within an unbiased 2 × 3 contingency framework that decouples task execution from boundary recognition. Across three qualitatively distinct invariant classes—continuous Hamiltonian mechanics, discrete topological grid enclosure, and temporal-causal planning—we demonstrate that standard ERM rapidly restores task execution while leaving boundary grounding under-recovered, and that constraint-guided internal consistency objectives recover significantly higher grounded persistence.
 
 These findings demonstrate that behavioral competence and boundary discrimination are partially separable dynamical properties of adaptive systems. We argue that machine learning's central evaluation challenge is an observability problem before it is an optimization problem: high performance can conceal severe degradation in unobserved but load-bearing internal structure.
 
 ## 1. Introduction
 
-### 1.1 The Observability Deficit in Adaptive Optimization
+### 1.1 The observability deficit in adaptive optimization
 
 Adaptive optimization repairs errors that manifest in observed outputs. But high-dimensional adaptive systems possess internal degrees of freedom that are only weakly coupled, or entirely uncoupled, from those outputs.
 
-What happens to load-bearing structure that resides within those unobserved coordinates?
+What happens to load-bearing structure residing in these unobserved coordinates?
 
-Consider an adaptive neural agent parameterized by weights θ ∈ ℝ^P. When the agent interacts with its environment, its internal state is projected through an observation channel:
+The central object is a neural system parameterized by θ ∈ ℝ^P. Its internal state is projected through an observation channel:
 
 Π_O : ℝ^P → 𝒴_obs
 
-where 𝒴_obs denotes the observable output space. The loss function L(θ) = ℓ(Π_O(θ)) provides feedback solely based on discrepancies between the model's projected output ŷ = Π_O(θ) and the empirical target y.
-
-If an agent experiences catastrophic parameter disruption, the damage is distributed across the entire parameter space. When the system is subsequently retrained on valid demonstrations using ERM, the gradient ∇_θ L acts exclusively along the coordinates that affect the output projection. Coordinates orthogonal to this projection receive zero direct supervisory signal.
-
-This creates a structural asymmetry: optimization repairs what the output sensor sees while remaining blind to damage in the unobserved null space.
-
-### 1.2 The Epistemic Inversion in Sequential Models
-
-Modern machine learning is dominated by sequence modeling trained via conditional likelihood maximization. This objective treats transition probabilities over surface tokens as generative primitives. But transition probabilities are often only observational shadows cast by deeper invariant constraint fields.
-
-The epistemic inversion is this: probabilities are observational shadows; invariant relational constraints are the generative substrate.
-
-As a result, a system trained only to match the empirical distribution of valid demonstrations can recover fluent task behavior while losing the capacity to reject unphysical or counterfactual transitions.
-
-### 1.3 Coherent Delusion
-
-When a model is severely disrupted and then retrained on valid demonstrations, it often rapidly recovers observable task competence while its boundary discrimination remains poor. This state—competent-looking, fluent, and task-successful, yet internally ungrounded—is what we call Coherent Delusion.
-
-## 2. The Generalized Observability Principle
-
-Let an adaptive system be defined by internal coordinates θ ∈ Θ ⊆ ℝ^P. The environment and task define a differentiable observation projection:
-
-Π_O : Θ → 𝒴_obs
-
-Any supervised objective evaluates errors exclusively over this projection:
+where 𝒴_obs is the observable output space. The loss is evaluated only on this projection:
 
 L(θ) = ℓ(Π_O(θ))
 
@@ -61,78 +32,71 @@ By the chain rule,
 
 ∇_θ L(θ) = [DΠ_O(θ)]^T ∇_y ℓ(Π_O(θ))
 
-This induces the tangent-space decomposition:
+This induces a decomposition of the parameter tangent space:
 
-𝒯_θ Θ = 𝒪_θ ⊕ 𝒰_θ
+𝒯_θΘ = 𝒪_θ ⊕ 𝒰_θ
 
-where
+where 𝒪_θ is the instrumented subspace and 𝒰_θ = ker(DΠ_O(θ)) is the blind subspace. Only the instrumented directions receive direct supervisory pressure. Coordinates in the blind subspace remain essentially invisible to empirical-risk minimization unless additional invariant feedback is introduced.
 
-- 𝒪_θ = range([DΠ_O(θ)]^T) is the instrumented subspace,
-- 𝒰_θ = ker(DΠ_O(θ)) is the blind subspace.
+### 1.2 Coherent Delusion
 
-Only coordinates in 𝒪_θ receive restorative supervisory pressure. Coordinates in 𝒰_θ remain unconstrained unless a separate invariant signal is supplied.
+When a model is catastrophically disrupted and then retrained on valid demonstrations, it often rapidly restores apparent task competence while remaining poor at rejecting invalid transitions. This state—competent-looking yet structurally ungrounded—is what the manuscript terms Coherent Delusion.
 
-This gives the central principle:
+## 2. Generalized observability principle
+
+The manuscript formalizes a general principle:
 
 Observability defines recoverability.
 
-## 3. Prediction-Jacobian Null Space
+If a perturbation enters a direction orthogonal to the observation Jacobian, then gradient descent on the objective provides zero restorative force along that direction. Consequently, recoverability is not only a property of optimization methods; it is constrained by the geometry of observability.
 
-A key mechanism behind the failure mode is that task gradients are confined to the row space of the prediction Jacobian. Let probe b produce a scalar task prediction ŷ_b. The task Jacobian with respect to relational coordinates is:
+This principle explains why standard retraining can restore behavior on nominal demonstrations while leaving boundary structure degraded in latent directions that never appear in the loss.
+
+## 3. Prediction-Jacobian null space
+
+The monograph introduces a scalar prediction-Jacobian formulation to explain why task gradients fail to repair invariant boundaries. Let the model predict a scalar output ŷ_b from relational coordinates e_{b,upper}. The task Jacobian is:
 
 J_b = ∇_{e_{b,upper}} ŷ_b
 
-Its null space is:
-
-N(J_b) = ker(J_b)
-
-For the empirical loss, the ERM gradient is proportional to J_b^T. Therefore, the task gradient lies entirely in the row space of J_b and is orthogonal to the null space:
+The null space N(J_b) contains directions orthogonal to the task sensitivity. The ERM gradient lies in the row space of J_b, and therefore is mathematically orthogonal to N(J_b):
 
 P_{N,b} g_ERM = 0
 
-Thus standard task training cannot directly repair the boundary structure that lives in the null-space directions.
+This is the precise reason that behavioral fine-tuning cannot directly repair boundary structure that lives in the prediction-null directions.
 
-## 4. Instrumentation and Evaluation
+## 4. Evaluation instrumentation
 
-To separate behavioral competence from boundary discrimination, the monograph introduces an unbiased 2 × 3 contingency framework that evaluates:
+To disentangle task execution from boundary discrimination, the paper introduces an unbiased 2 × 3 contingency framework. It separates:
 
 - lawful task execution,
-- boundary recognition quality,
-- rejection of invariant violations.
+- ambient lawful variation,
+- invariant-violating counterfactuals.
 
-The metrics include:
+The operational metrics include:
 
 - F1_lawful
 - TIS (Targeted Invariant Specificity)
 - GP (Grounded Persistence)
 
-These allow the project to treat task success and boundary grounding as distinct axes of recovery.
+This instrumentation allows the system to reveal whether a model is merely fluent or genuinely grounded.
 
-## 5. Empirical Findings
+## 5. Multi-domain findings
 
-Across the three invariant domains studied—continuous Hamiltonian mechanics, discrete topological grid enclosure, and temporal-causal planning—the following pattern appears robustly:
+Across continuous physics, discrete topological abstraction, and temporal-causal planning, the manuscript finds a consistent pattern:
 
-- Behavioral fine-tuning rapidly restores apparent competence.
-- Boundary grounding remains persistently under-recovered.
-- Constraint-guided reconstruction improves boundary discrimination and grounded persistence substantially.
-- The early advantage is concentrated in boundary recovery rather than task recall.
+- standard fine-tuning rapidly restores task fluency,
+- boundary grounding remains under-recovered,
+- constraint-guided recovery yields substantially stronger boundary discrimination,
+- the early advantage is dominated by boundary restoration rather than conventional task recall.
 
-This is precisely the signature of Coherent Delusion.
+These results support the claim that output-level performance is not a sufficient proxy for structural recovery.
 
 ## 6. Implications
 
-The monograph argues that machine learning's central evaluation challenge is an observability problem before it is an optimization problem. High performance on standard supervised data can conceal severe degradation in unobserved but load-bearing internal structure.
+The manuscript argues that the central challenge in adapting modern machine learning systems is not merely optimization, but observability. High task performance can conceal severe degradation in unobserved but load-bearing internal structure. This has implications for fine-tuning, continual learning, pruning, quantization, and model safety.
 
-This has implications for:
+## 7. Conclusion
 
-- post-training and fine-tuning,
-- pruning and quantization,
-- continual learning,
-- model safety,
-- and the broader challenge of invariant grounding in adaptive systems.
-
-## Conclusion
-
-The central contribution of this work is to show that behavioral competence and boundary discrimination are not interchangeable. A system can be fluent and still be structurally under-grounded. Measuring only output-level task success is therefore insufficient; evaluation must also account for whether the model preserves the invariant boundaries that make its behavior lawful, stable, and recoverable.
+The monograph shows that behavioral competence and boundary discrimination are separable dynamical properties of adaptive systems. A model can be fluent while structurally ungrounded. The key to robust recovery is not simply restoring output behavior, but also restoring the invariant boundary structure that lives in the unobserved coordinates of the representation.
 
 Observability defines recoverability.
