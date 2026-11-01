@@ -12,6 +12,7 @@ This directory is the structured manuscript split into standalone section files 
 - `05-experimental-findings.md`
 - `06-implications.md`
 - `07-conclusion.md`
+- `08-ai-persistence-constraint-framework.md`
 - `equations.md`
 
 ## Notes
