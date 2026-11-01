@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this monograph in your work, please cite it as below."
+message: "If you use this monograph in your work, please cite the project title and repository URL unless formal author attribution is established."
 title: "Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction"
 authors:
-  - family-names: Relational Intelligence Working Group
-    given-names: ""
+  - family-names: "Boundary Recovery Dynamics"
+    given-names: "Project"
 abstract: >-
   Canonical monograph on observability, recoverability, and boundary recovery
   dynamics in adaptive neural systems. The work formalizes the claim that
