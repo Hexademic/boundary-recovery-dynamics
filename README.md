@@ -10,32 +10,34 @@ Status: Canonical Monograph
 
 ## Overview
 
-This repository preserves and presents a canonical manuscript investigating a core failure mode in adaptive machine learning: when an agent is catastrophically disrupted and then retrained on valid demonstrations, it can recover fluent task behavior while leaving invariant boundary structure degraded in unobserved coordinates.
+This repository archives and presents a canonical manuscript on a central question in adaptive machine learning: when a model is disrupted and retrained on valid demonstrations, how much of its internal structural integrity is actually restored? The monograph argues that optimization can only repair what the observation channel can measure, and that task fluency can recover while invariant boundary structure remains degraded in unobserved null-space coordinates.
 
-The monograph formalizes this phenomenon as Coherent Delusion and argues that the underlying principle is:
+The manuscript formalizes this failure mode as Coherent Delusion and advances the principle:
 
 Observability defines recoverability.
 
-## Core thesis
+## Research theme
 
-- Standard empirical risk minimization repairs what the output projection can observe.
-- Damage stored in blind null-space directions receives no direct restorative gradient.
-- High behavioral performance can coexist with severe degradation of invariant boundary structure.
-- Constraint-guided recovery improves grounded persistence and boundary discrimination.
+The work connects signal observability, representation geometry, invariant enforcement, and recovery dynamics. It argues that evaluations based only on observable task outputs can conceal severe degradation in the unobserved but load-bearing structure of adaptive systems.
 
 ## Repository structure
 
-- `README.md` — project landing page
-- `paper/README.md` — paper-level index and navigation
-- `paper/boundary-recovery-dynamics.md` — polished manuscript summary
+- `README.md` — project overview and entry point
+- `paper/README.md` — paper index and navigation
+- `paper/boundary-recovery-dynamics.md` — formalized manuscript summary
 - `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text
-- `docs/index.md` — documentation overview
-- `CITATION.cff` — citation metadata
+- `docs/index.md` — documentation landing page
+- `paper/references.bib` — bibliography
+- `CITATION.cff` — machine-readable citation metadata
 - `LICENSE` — MIT license
 
-## Why this matters
+## Key claims
 
-The manuscript addresses a foundational issue in modern optimization: evaluating recovery solely on observed task performance can conceal severe degradation in the latent, load-bearing structure of a system. In over-parameterized models, the observation channel is often narrow relative to the parameter space, so the optimization signal fails to fully constrain the system's internal geometry.
+- Behavioral competence and boundary grounding are partially separable properties.
+- Standard ERM restores observed task outputs more rapidly than it restores invariant boundary discrimination.
+- Unobserved null-space coordinates can silently accumulate structural damage after disruption.
+- Constraint-guided recovery improves grounded persistence beyond behavioral fine-tuning alone.
+- The primary challenge is not only optimization but observability of the system's latent structure.
 
 ## Citation
 
