@@ -33,6 +33,10 @@ The project is grounded in the following established literature streams:
 
 A complete bibliography is maintained in `paper/references.bib`.
 
+## Canonical citation
+
+Boundary Recovery Dynamics project. (2026). Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction. GitHub repository. https://github.com/Hexademic/boundary-recovery-dynamics
+
 ## Repository architecture
 
 - `README.md` — project overview and conceptual framing
