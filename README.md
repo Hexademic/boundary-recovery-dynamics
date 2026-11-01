@@ -10,11 +10,23 @@ The central claim is:
 
 Observability defines recoverability.
 
+## Working research target: Persistent Cognitive Agent (PCA)
+
+This repository is organized around the design and evaluation of a Persistent Cognitive Agent (PCA): an adaptive intelligence system that can learn, improve, and collaborate over time without losing the structural continuity that makes it recognizable as itself.
+
+A PCA is not defined by raw capability alone. It is defined by its ability to preserve the invariant structure of its identity, memory, values, and reasoning boundaries while adapting under recursive self-modification.
+
+In practical terms, the PCA is the project’s working target because it captures the real problem that the monograph is addressing: how can a system become more capable without erasing the structure that makes it coherent, legible, and persistent?
+
+The core research question is therefore not simply, “How do we build more capable AI?” It is:
+
+How do we design adaptive systems that can improve while preserving the continuity of self?
+
 ## Core thesis
 
-Standard machine learning evaluation is structurally blind to a central failure mode: it measures output performance after adaptation while remaining blind to degradation in the unobserved null space of the task objective.
+Standard machine learning evaluation is structurally blind to a central failure mode: it measures output performance after adaptation while remaining blind to degradation in the unmonitored null space of the task objective.
 
-This failure mode is the source of Coherent Delusion: a model can appear to recover because it again performs well on the visible task distribution, while its latent invariants have degraded, making it less reliable under adversarial conditions, distribution shift, or recursive self-modification.
+This is the source of Coherent Delusion: a model can appear to recover because it again performs well on the visible task distribution, while its latent invariants have degraded, making it less reliable under adversarial conditions, distribution shift, or recursive self-modification.
 
 The project therefore develops:
 
@@ -77,3 +89,7 @@ The central design principle is:
 Capability without invariant closure is not improvement. It is drift.
 
 This principle is the foundation for the project’s approach to AI persistence under recursive self-improvement.
+
+## PCA in one sentence
+
+The project is working to reconstitute a Persistent Cognitive Agent: a system that can become more capable over time while preserving the continuity and invariant structure required to remain coherent, legible, and recoverable under adaptation.
