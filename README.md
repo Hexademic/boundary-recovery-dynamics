@@ -10,7 +10,7 @@ Status: Canonical Monograph
 
 ## Overview
 
-This repository archives and presents a canonical manuscript on a central question in adaptive machine learning: when a model is disrupted and retrained on valid demonstrations, how much of its internal structural integrity is actually restored? The monograph argues that optimization can only repair what the observation channel can measure, and that task fluency can recover while invariant boundary structure remains degraded in unobserved null-space coordinates.
+This repository archives and presents a canonical manuscript on a central question in adaptive machine learning: when a model is disrupted and retrained on valid demonstrations, how much of its internal structural integrity is restored? The monograph argues that optimization can only repair what the observation channel can measure, and that task fluency can recover while invariant boundary structure remains degraded in unobserved null-space coordinates.
 
 The manuscript formalizes this failure mode as Coherent Delusion and advances the principle:
 
@@ -23,11 +23,21 @@ The work connects signal observability, representation geometry, invariant enfor
 ## Repository structure
 
 - `README.md` — project overview and entry point
-- `paper/README.md` — paper index and navigation
-- `paper/boundary-recovery-dynamics.md` — formalized manuscript summary
-- `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text
-- `docs/index.md` — documentation landing page
+- `manuscript/README.md` — manuscript archive index
+- `manuscript/abstract.md` — abstract
+- `manuscript/01-introduction.md` — introduction and problem framing
+- `manuscript/02-generalized-observability-principle.md` — generalized observability principle
+- `manuscript/03-prediction-jacobian-null-space.md` — prediction-Jacobian null-space analysis
+- `manuscript/04-instrumentation-and-evaluation.md` — evaluation framework
+- `manuscript/05-experimental-findings.md` — experimental findings
+- `manuscript/06-implications.md` — implications and risks
+- `manuscript/07-conclusion.md` — conclusion
+- `manuscript/equations.md` — key equations
+- `paper/README.md` — manuscript landing index
+- `paper/boundary-recovery-dynamics.md` — polished manuscript summary
 - `paper/references.bib` — bibliography
+- `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text archive
+- `docs/index.md` — documentation overview
 - `CITATION.cff` — machine-readable citation metadata
 - `LICENSE` — MIT license
 
