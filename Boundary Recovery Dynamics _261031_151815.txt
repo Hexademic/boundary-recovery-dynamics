@@ -1,0 +1,232 @@
+Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction
+
+Authors: The Relational Intelligence Working Group
+Target Venue: Journal of Machine Learning Research (JMLR)
+Status: Canonical Monograph
+
+Abstract
+
+Adaptive optimization repairs errors that manifest in observed outputs. But high-dimensional adaptive systems possess internal degrees of freedom that are only weakly coupled, or entirely uncoupled, from those outputs. What happens to load-bearing structure that resides within those unobserved coordinates?
+
+Current evaluation paradigms assess post-disruption recovery almost exclusively by measuring loss or accuracy on valid demonstration data. In doing so, they conflate an agent's behavioral task execution with its capacity to discriminate physical, topological, and logical boundaries. This monograph demonstrates that when an adaptive neural system experiences severe parameter disruption, standard supervised retraining rapidly restores observable task fluency while leaving unobserved, load-bearing invariant boundaries severely degraded.
+
+We formalize this failure mode—termed Coherent Delusion (F1_lawful -> 1, TIS -> 0)—not as an algorithmic defect of specific optimizers, but as a direct consequence of a broader principle: observability defines recoverability. Because an objective function can only exert restorative pressure along the range of its observation Jacobian, perturbations that project into the unobserved null space accumulate without penalty.
+
+To instrument this blind spot, we develop a directional invariant sensor (TIS) embedded within an unbiased 2 × 3 contingency framework that decouples task execution from boundary recognition. Across three qualitatively distinct invariant classes—continuous Hamiltonian mechanics, discrete topological grid enclosure (ARC-style abstraction), and temporal-causal planning (STRIPS precondition closure)—we demonstrate that:
+
+1. Standard behavioral fine-tuning via Empirical Risk Minimization (ERM) rapidly restores task execution (F1_lawful ≈ 74%–78%), but consistently under-recovers boundary grounding (TIS ≈ 54%–59%), routinely leaving the system in Coherent Delusion.
+2. Augmenting fine-tuning with an internal constraint-guided transitivity objective recovers significantly higher Grounded Persistence (I_R ≈ +23%, p < 10^-15 across all domains and architectures, including standard Transformers and Recurrent State Space Models).
+3. Shapley decomposition reveals a characteristic early-recovery concentration: across all domains, an average of 87.9% of the net reconstruction advantage at checkpoint K=10 is attributable to boundary discrimination (ΔTIS), driven by the severe temporal lag of ERM boundary closure relative to rapid task saturation.
+4. Using an exact Prediction-Jacobian null-space formulation, we prove that the consistency gradient projects into representational degrees of freedom (Ω_null ≈ 81.5%) orthogonal to immediate task predictions. We formally bound higher-order prediction curvature via the readout Hessian (||Δŷ|| ≤ 0.007) and verify that taking a finite step along this null direction directly tightens boundary rejection (+14.26 pp over a 30-draw random null baseline, t = 45.41, p = 7.11 × 10^-6, df = 4) while certifying lawful recall non-inferiority (t_NI = 7.3485, p_NI = 8.89 × 10^-4, df = 4).
+
+These findings demonstrate that behavioral competence and boundary discrimination are partially separable dynamical properties of adaptive systems. We argue that machine learning's central evaluation challenge is an observability problem before it is an optimization problem: high performance can conceal severe degradation in unobserved but load-bearing internal structure.
+
+1. Introduction
+
+1.1 The Observability Deficit in Adaptive Optimization
+
+Adaptive optimization repairs errors that manifest in observed outputs. But high-dimensional adaptive systems possess internal degrees of freedom that are only weakly coupled, or entirely uncoupled, from those outputs.
+
+What happens to load-bearing structure that resides within those unobserved coordinates?
+
+Consider an adaptive neural agent parameterized by weights θ ∈ R^P. When the agent interacts with its environment, its internal state is projected through an observation channel:
+
+Π_O: R^P → Y_obs where Y_obs denotes the observable output space (e.g., target labels, next-token predictions, action coordinates, scalar rewards). The loss function L(θ) = ℓ(Π_O(θ)) provides feedback solely based on discrepancies between the model's projected output ŷ = Π_O(θ) and the empirical target y.
+
+If an agent experiences catastrophic parameter disruption (induced by hardware faults, physical trauma, pruning, quantization, or random shock), the damage is distributed across the entire parameter space. When the system is subsequently retrained on valid demonstrations using Empirical Risk Minimization (ERM), the gradient ∇_θ L acts exclusively along the coordinates that affect the output projection. Coordinates that are orthogonal to this projection receive zero direct supervisory signal.
+
+This introduces a fundamental asymmetry: the optimizer repairs what the output sensor sees, while remaining completely blind to damage residing in the unobserved null space.
+
+THE PILOT'S DASHBOARD PROBLEM
+
+Observable Dashboard (Pi_O) | Uninstrumented Airframe (ker D Pi_O)
+- Altimeter: 10,000 ft [OK] | Wing Spar Shear: CRITICAL FATIGUE
+- Airspeed: 350 knots [OK] | Internal Crack: EXPANDING
+- Compass: 090 deg [OK] | Load Capacity: COMPROMISED
+
+Optimizer Status: Error = 0.00 | Actual Status: Structural Collapse Imminent
+
+Like an aircraft whose cockpit instruments report nominal altitude, speed, and heading while a structural crack expands through an unmonitored wing spar, an adaptive neural model can achieve near-zero task loss while its internal physical and logical boundaries are severely fractured.
+
+1.2 The Epistemic Inversion in Sequential Models
+
+Modern machine learning is dominated by sequence modeling trained via conditional likelihood maximization:
+
+L_NLL(θ) = -Σ_{t=1}^T log P_θ(x_t | x_1, …, x_{t-1}),   P(x_t | x_<t) = Softmax(W h_{t-1})
+
+This objective treats transition probabilities over surface tokens as generative primitives. In statistical physics, causal inference, and dynamical systems, however, transition probabilities are merely observational shadows cast by underlying constraint fields.
+
+Water does not boil at 100°C with empirical probability P ≈ 0.95 because of a statistical correlation among previously observed water molecules; it transitions because thermal kinetic energy exceeds the intermolecular hydrogen bond energy under ambient atmospheric pressure:
+
+|E_kinetic| > |E_bond + E_ambient|
+
+If ambient pressure drops, surface transition probabilities instantly collapse. An agent trained exclusively on sequential co-occurrence must re-sample the environment empirically across thousands of trials to adapt. Conversely, an agent modeling the invariant relational constraint field recalculates the allowable transformation boundary analytically.
+
+The Epistemic Inversion: Probabilities are observational shadows. Invariant relational constraints are the generative substrate.
+
+By minimizing empirical risk strictly over observed positive demonstrations, contemporary artificial intelligence commits an epistemic inversion: it attempts to induce what is impossible solely by sampling what is actual. When perturbed, systems trained this way restore task execution on typical data while losing the capacity to detect unphysical or counterfactual transitions.
+
+1.3 The Core Phenomenon: Boundary Recovery Asymmetry
+
+When an adaptive neural network suffers catastrophic parameter disruption (e.g., isotropic Gaussian noise injection θ_1 = θ_0 + N(0, σ^2 I) with σ = 0.45), its capabilities collapse. When the network is subsequently retrained on valid demonstration data using standard ERM, its task execution fluency recovers rapidly (F1_lawful ≈ 74%–78%). The network quickly learns to emit syntactically valid planning sequences, draw closed geometric loops, and integrate physical trajectories.
+
+However, its out-of-distribution discrimination remains impaired: it continues to accept physically impossible, symplectic-violating jumps, open topological leaks, and severed causal preconditions that the undamaged model rejects (TIS ≈ 54%–59%). The agent enters a state of Coherent Delusion: competent-looking, fluent, and task-successful, yet fundamentally ungrounded.
+
+POST-CATASTROPHE TRAJECTORY UNDER BEHAVIORAL SUPERVISION (ERM)
+
+Task Competence (F1_lawful): 0% → 75% (Rapid Restoration)
+Boundary Grounding (TIS): 0% → 55% (Porous Rejection Filter)
+
+In contrast, when post-catastrophe optimization is augmented with internal relational constraint closure (Pathway C), the system's recovery dynamics change:
+
+- The model recovers comparable behavioral competence (F1_lawful ≈ 80%).
+- Its boundary discrimination increases markedly (TIS → 82%).
+- Shapley decomposition demonstrates that approximately 88% of the net reconstruction advantage is driven by boundary restoration (ΔTIS), rather than behavioral recall (ΔF1_lawful).
+
+1.4 Coherent Delusion as an Observability Failure Mode
+
+Why does ERM consistently produce Coherent Delusion? Under standard behavioral fine-tuning on a small batch of demonstrations D_K = {(x_k, y_k)}_{k=1}^{K}, the empirical risk is:
+
+L_ERM(θ) = (1/K) Σ_{k=1}^{K} ℓ(f_θ(x_k), y_k)
+
+The gradient update Δθ = -η ∇_θ L_ERM is confined to the subspace spanned by the task gradients:
+
+Δθ ∈ span({∇_θ ℓ(f_θ(x_k), y_k)}_{k=1}^{K})
+
+In an overparameterized model where dim(θ) >> K, the orthogonal complement N(D_K) remains unconstrained. Post-disruption noise in these unconstrained directions leaves the model's decision boundaries porous to counterfactuals that project outside the demonstration subspace. As a result, the model fits the demonstration points while failing to restore the separating boundary between physical and unphysical transitions.
+
+Coherent Delusion is not an exotic anomaly or hyperparameter failure. It is the predictable, maximum-entropy state of an under-instrumented dynamical system.
+
+1.5 Contributions and Roadmap
+
+This monograph formalizes these dynamics across theory, instrumentation, and multi-domain empirical replication:
+
+1. The Principle (Section 2): We establish the generalized observability principle: observability defines recoverability.
+2. The Geometry (Section 3): We formulate the exact scalar Prediction-Jacobian null space N(J_b) and prove that ERM gradients are mathematically orthogonal to it.
+3. The Instrumentation (Section 4): We introduce the unbiased 2 × 3 contingency framework that decouples task execution (F1) from boundary discrimination (TIS).
+4. The Demonstration (Sections 5–7): Across continuous Hamiltonian mechanics, discrete topological ARC grids, and temporal-causal STRIPS planning, we verify the recovery asymmetry across relational and standard backbones.
+5. The Agenda (Section 8): We present the broader implications for AI alignment, model pruning, quantization, continual learning, and Goodhart's Law.
+
+2. The Generalized Observability Principle & Representation Geometry
+
+2.1 The Observation Projection and System Tangent Space
+
+Let an adaptive system be defined by internal coordinates θ ∈ Θ ⊆ R^P. The environment and task define a differentiable observation projection:
+
+Π_O: Θ → Y_obs where Y_obs ⊆ R^{d_obs} is the space of observable outputs (d_obs << P). Any supervised objective L: Θ → R_≥0 evaluates errors exclusively over this projection:
+
+L(θ) = ℓ(Π_O(θ))
+
+By the multivariable chain rule, the gradient of the loss with respect to internal coordinates satisfies:
+
+∇_θ L(θ) = [DΠ_O(θ)]^T ∇_y ℓ(Π_O(θ))
+
+where DΠ_O(θ) ∈ R^{d_obs × P} is the Jacobian of the observation map.
+
+This differential map induces an exact orthogonal decomposition of the system's parameter tangent space T_θΘ:
+
+T_θΘ = O_θ ⊕ U_θ
+
+with O_θ = range([DΠ_O(θ)]^T) and U_θ = ker(DΠ_O(θ)).
+
+The Principle of Recoverable Structure: Only internal coordinates that induce measurable first-order variations in the observation projection Π_O receive restorative supervisory pressure. If an isotropic perturbation δθ is injected into the system:
+
+δθ = δθ_O + δθ_U
+
+with δθ_O ∈ O_θ and δθ_U ∈ U_θ, gradient descent on L contracts δθ_O → 0 while exerting identically zero restorative force on δθ_U. Consequently:
+
+Observability defines recoverability.
+
+2.2 The Entropy of Uncoupled Coordinates
+
+In an overparameterized system (P >> d_obs), external perturbations act broadly across the entire tangent space T_θΘ. The task loss L acts as a dissipative, cooling sink, but only along the low-dimensional subspace O_θ. Along the uncoupled subspace U_θ, there is no restorative gradient. The coordinates in U_θ behave as an unmonitored thermodynamic reservoir. In the absence of an explicit feedback loop monitoring U_θ, entropy continuously accumulates along these blind degrees of freedom:
+
+(d/dt) H(θ_U) ≥ 0
+
+Coherent Delusion is therefore the natural, maximum-entropy configuration of an under-instrumented adaptive system.
+
+2.3 The Permissive Null Space: What Lives in U_θ
+
+U_θ = G_gauge ⊕ D_dormant ⊕ N_invariant
+
+1. Gauge redundancies (G_gauge)
+2. Dormant task circuits (D_dormant)
+3. Load-bearing invariant normals (N_invariant)
+
+When an agent suffers parameter disruption, damage is injected across all three components. Behavioral fine-tuning on valid tasks restores O_θ, but leaves N_invariant fractured inside U_θ.
+
+2.4 Representation Geometry: Antisymmetry, Zero-Diagonal, and Feasible Retraction
+
+To represent directed relational differences E_ij ≈ V_j − V_i without trivial collapse, the embedding manifold must support exact zeros on self-loops and strict antisymmetry on reversed edges. We parameterize the representation by projecting raw projections Ẽ onto the antisymmetric, zero-diagonal subspace with off-diagonal norm lower bounding.
+
+2.5 Proposition 1: Formal Proof of Zero-Norm Collapse under Homogeneous Losses
+
+A naive approach to preventing collapse minimizes a relational consistency deficit D(E) regularized by soft empirical variance:
+
+L_soft(E) = D(E) / (Var(E) + ε), ε > 0
+
+This loss collapses to zero because degree-2 homogeneous losses admit a zero attractor under gradient descent.
+
+3. The Mechanistic Engine: Prediction-Jacobian Null Space
+
+3.1 Scalar Task Readouts and the Prediction Jacobian J_b
+
+Let probe b have pooled representation H_b ∈ R^{d_model} and upper-triangular relational coordinates e_{b,upper} ∈ R^{d_upper}. The model evaluates scalar output ŷ_b through non-linear edge aggregation. The task prediction Jacobian with respect to relational coordinates is the row vector:
+
+J_b = ∇_{e_{b,upper}} ŷ_b ∈ R^{1 × d_upper}
+
+The null space N(J_b) = ker(J_b) is the (d_upper − 1)-dimensional subspace orthogonal to J_b. The exact orthogonal projector is:
+
+P_{N,b} = I_{d_upper} − J_b^T J_b / ||J_b||_2^2
+
+3.2 Proof: Chain-Rule Orthogonality of Empirical Risk Minimization
+
+For the squared task loss L_task,b = (ŷ_b − y_b)^2, the gradient with respect to relational coordinates is:
+
+g_ERM,b = ∇_{e_{b,upper}} L_task,b = 2(ŷ_b − y_b) J_b^T
+
+Applying the null projector:
+
+P_{N,b} g_ERM,b = 0
+
+Thus standard task training is mathematically confined to the 1D span of J_b and provides zero gradient along the null-space directions.
+
+3.3 Directional Invariant Deficit Operators
+
+To provide supervisory signal within N(J_b), we introduce domain-specific relational consistency operators D_domain. These include conservative integrability in physics, one-sided fuzzy sub-transitivity in topology, and STRIPS precondition deficits in planning.
+
+4. Instrumentation: The Decoupled Contingency Framework
+
+4.2 The Unbiased 2 × 3 Contingency Matrix
+
+The test suite Ω_test consists of three mutually exclusive sets of size N = 100:
+
+- Ω_agent: lawful transitions under baseline coupling K_0
+- Ω_amb: lawful transitions under alternative valid parameters K_amb ≠ K_0
+- Ω^-_hard: in-manifold counterfactuals shifting target invariants by +ε along the constraint gradient
+
+The unbiased contingency table separates lawful acceptance from unphysical rejection and measures:
+
+- TIS = TN / (TN + FP)
+- F1_lawful = 2 · P_lawful · R_lawful / (P_lawful + R_lawful)
+- GP_lawful = F1_lawful · TIS
+
+5. Experimental Methodology & Adversarial Testbeds
+
+5.1 Three Qualitatively Distinct Invariant Domains
+
+1. Continuous Physics (4-body Harmonic Lattice)
+2. Discrete Topology (ARC-AGI Mini-Suite)
+3. Causal Planning (STRIPS BlocksWorld)
+
+5.3 Reconstruction Pathways
+
+- Pathway A: SVD spectral anchor
+- Pathway B: behavioral ERM
+- Pathway C: constraint-guided reconstruction
+
+6. Empirical Results & Multi-Domain Replications
+
+A canonical replication matrix finds that behavioral fine-tuning recovers task fluency quickly but leaves boundary grounding degraded, while constraint-guided reconstruction substantially improves Grounded Persistence. Across domains, average improvement is reported as +23.08% in GP_lawful with dominating contribution on the grounding axis.
+
+This raw file includes the manuscript summary and core declarations from the full monograph text and is provided as a working source document.
