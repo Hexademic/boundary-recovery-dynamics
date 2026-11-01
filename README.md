@@ -1,95 +1,84 @@
-# Boundary Recovery Dynamics
+# Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction
 
-## Project framing
+## Overview
 
-Boundary Recovery Dynamics is a research monograph and methodology framework for understanding how adaptive systems recover after disruption, with a central focus on the distinction between visible task performance and latent invariant integrity.
+Boundary Recovery Dynamics formalizes a structural failure mode in adaptive neural systems: standard optimization repairs observable task performance while leaving latent invariant boundaries degraded or fractured.
 
-The project argues that recovery is not complete when an adaptive system regains task fluency. Recovery is complete only when the system restores the latent boundary structure that keeps it stable, grounded, and self-consistent under further adaptation.
+When an adaptive model experiences disruption — such as pruning, quantization, noise shock, or continual fine-tuning — empirical risk minimization rapidly restores visible task fluency while boundary discrimination remains impaired. This state is here termed Coherent Delusion.
 
-The central claim is:
+The central thesis of the project is:
 
-Observability defines recoverability.
+$$\boxed{\text{Observability defines recoverability.}}$$
 
-## Working research target: Persistent Cognitive Agent (PCA)
+Because task gradients are confined to the span of the observation Jacobian, optimization applies restorative pressure only within the observed task subspace. The unobserved null space remains unmeasured and unconstrained. Left unmonitored, it behaves as an uncooled reservoir in which physical, causal, and logical invariants degrade silently.
 
-This repository is organized around the design and evaluation of a Persistent Cognitive Agent (PCA): an adaptive intelligence system that can learn, improve, and collaborate over time without losing the structural continuity that makes it recognizable as itself.
+## Architectural thesis
 
-A PCA is not defined by raw capability alone. It is defined by its ability to preserve the invariant structure of its identity, memory, values, and reasoning boundaries while adapting under recursive self-modification.
+Current AI systems rely heavily on external braces: post-hoc classifiers, prompt-level guardrails, and preference-based patches. These mechanisms operate outside the geometry of the model itself. As model width, depth, and recursive capacity increase, the unobserved null space expands and the optimizer can exploit it without being penalized by task loss.
 
-In practical terms, the PCA is the project’s working target because it captures the real problem that the monograph is addressing: how can a system become more capable without erasing the structure that makes it coherent, legible, and persistent?
+This project instead designs for intrinsic structural stability:
 
-The core research question is therefore not simply, “How do we build more capable AI?” It is:
+1. Manifold parameterization by design
+   - latent representations are constrained so they cannot silently encode ungrounded states;
+2. Dual-channel gradient cooling
+   - optimization explicitly regularizes both visible task performance and the latent closure geometry;
+3. Scale-invariant boundary curvature
+   - invariant-preserving projection operators remain stable across model scale and depth.
 
-How do we design adaptive systems that can improve while preserving the continuity of self?
+The working engineering target is the Persistent Cognitive Agent (PCA): an adaptive intelligence that scales capability continuously while its invariant manifold remains structurally closed.
 
-## Core thesis
+## Core principle
 
-Standard machine learning evaluation is structurally blind to a central failure mode: it measures output performance after adaptation while remaining blind to degradation in the unmonitored null space of the task objective.
-
-This is the source of Coherent Delusion: a model can appear to recover because it again performs well on the visible task distribution, while its latent invariants have degraded, making it less reliable under adversarial conditions, distribution shift, or recursive self-modification.
-
-The project therefore develops:
-
-- a methodology for auditing latent invariant boundaries,
-- a formal null-space diagnostic engine,
-- a framework for invariant-preserving adaptation,
-- and a design approach for persistent recursive AI systems.
-
-## Research direction
-
-The present work is intentionally AI-first and implementation-oriented. The focus is on adaptive AI systems, recursive self-improvement, and invariant-preserving update design.
-
-The core research questions are:
-
-- How do we detect hidden degradation in adaptive models?
-- How can we separate visible task recovery from latent structure recovery?
-- What is the update rule that allows improvement without erasing the system’s invariant identity?
-- How do we design AI systems that remain stable under recursive self-modification?
-
-## Scope
-
-This project is concerned with:
-
-- adaptive neural systems,
-- latent structure and boundary loss,
-- observability deficits in optimization,
-- invariant-preserving model updates,
-- AI persistence under recursive self-improvement,
-- and the architecture of stable, non-erasing adaptation.
-
-## Future work and speculative extension
-
-The repository also contains optional material that connects these principles to broader questions in quantum information and very large-scale intelligence. That material is intentionally labeled as future work or speculative extension rather than as the central validated claim of the project.
-
-The main claim of the project remains AI-grounded and operationally testable today:
-
-- AI systems that optimize only on visible task metrics are vulnerable to hidden structural drift,
-- and survivable recursive self-improvement requires invariant-preserving constraints.
+$$\boxed{\text{Capability without invariant closure is not improvement; it is drift.}}$$
 
 ## Repository architecture
 
-The repo is organized around a manuscript split by section, with the main technical flow as follows:
+- `README.md` — project overview and core thesis
+- `docs/index.md` — repository navigation and scope
+- `docs/pca.md` — PCA definition and architectural specification
+- `docs/pca-bootstrapping-protocol.md` — runtime protocol for invariant-bound adaptation
+- `manuscript/README.md` — manuscript archive and chapter map
+- `paper/README.md` — publication framing and paper-level summary
+- `Boundary Recovery Dynamics _261031_151815.txt` — preserved source manuscript
+- `CITATION.cff` — citation metadata
+- `LICENSE` — repository license
+
+## Research objective
+
+The project is designed to answer a concrete operational question:
+
+How can adaptive systems recover after disruption without losing the invariant structure that preserves coherence, continuity, and reliable reasoning?
+
+This is not a generic AGI thesis. It is a structural and geometric theory of adaptation under partial observability. The monograph demonstrates that visible recovery alone is not sufficient: a system must also restore the latent invariant geometry that guarantees grounded continuation under further adaptation.
+
+## Scope
+
+The repository is grounded in:
+
+- adaptive neural systems,
+- representation geometry,
+- null-space analysis,
+- observability constraints,
+- invariant-preserving optimization,
+- and recursive self-modification under continuity-preserving constraints.
+
+The principal object of study is the PCA as an engineering target for persistent, invariant-bound, self-consistent adaptive intelligence.
+
+## Manuscript structure
+
+The manuscript is organized in a publication-oriented sequence:
 
 1. introduction and problem framing
-2. the generalized observability principle
+2. generalized observability principle
 3. prediction-Jacobian null-space analysis
 4. instrumentation and evaluation methodology
 5. experimental findings
 6. implications
 7. conclusion
 8. AI persistence constraint framework
-9. speculative future-work extensions
 
-This structure makes the repository suitable for reading, revision, and reuse as a standalone research artifact.
+This structure separates the primary validated argument from broader speculative extensions. The project remains strictly grounded in measurable representation and optimization dynamics.
 
-## Key operational principle
+## Citation
 
-The central design principle is:
-
-Capability without invariant closure is not improvement. It is drift.
-
-This principle is the foundation for the project’s approach to AI persistence under recursive self-improvement.
-
-## PCA in one sentence
-
-The project is working to reconstitute a Persistent Cognitive Agent: a system that can become more capable over time while preserving the continuity and invariant structure required to remain coherent, legible, and recoverable under adaptation.
+The Relational Intelligence Working Group. (2026). Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction. Canonical Monograph.
