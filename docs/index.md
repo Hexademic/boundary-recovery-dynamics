@@ -4,27 +4,31 @@ This repository archives and presents the canonical monograph on boundary recove
 
 ## Purpose
 
-The work investigates a central problem in machine learning: when a model is disrupted and then retrained on valid data, how much of its internal structural integrity is actually restored? The monograph argues that most objective functions only provide restorative pressure along observed output directions, leaving many load-bearing invariant boundaries unaddressed.
+The manuscript investigates a foundational problem in machine learning: when a model is disrupted and then retrained on valid data, how much of its internal structural integrity is restored? The central claim is that optimization can only repair what the observation channel can see. As a result, a model may recover fluent output behavior while leaving invariant boundary structure degraded in unobserved null-space coordinates.
 
-## The core claim
+## Core thesis
 
 Observability defines recoverability.
 
-In practical terms, a model can appear highly competent on task outputs while its unobserved relational and invariant structure remains degraded. This is the failure mode termed Coherent Delusion.
+In over-parameterized systems, the loss function is restricted to the observable projection and provides no direct supervisory signal for blind degrees of freedom. This creates a systematic asymmetry: standard empirical-risk minimization repairs task execution rapidly while leaving latent invariant boundaries under-constrained.
 
 ## Included materials
 
 - Source manuscript: `../Boundary Recovery Dynamics _261031_151815.txt`
-- Structured manuscript summary: `../paper/boundary-recovery-dynamics.md`
+- Manuscript summary: `../paper/boundary-recovery-dynamics.md`
+- Paper index: `../paper/README.md`
+- Citation metadata: `../CITATION.cff`
+- Bibliography: `../paper/references.bib`
 - Repository landing page: `../README.md`
 
 ## Research themes
 
 - adaptive optimization after parameter disruption
-- null-space geometry and the observation Jacobian
-- boundary discrimination under invariant perturbations
-- grounded persistence and TIS metrics
-- multi-domain recovery across physics, topology, and planning
+- observability, Jacobian structure, and null-space geometry
+- invariant boundary discrimination
+- Coherent Delusion
+- grounded persistence and targeted invariant specificity (TIS)
+- multi-domain recovery across physical, topological, and planning settings
 
 ## Citation
 
