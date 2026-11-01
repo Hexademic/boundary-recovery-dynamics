@@ -1,5 +1,7 @@
 # Paper Index
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 ## Manuscript
 
 Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction
@@ -22,7 +24,7 @@ The manuscript is organized around three pillars:
 2. The geometry of prediction-Jacobian null spaces
 3. A decoupled evaluation protocol for boundary grounding
 
-Together, these establish that behavioral competence and boundary discrimination are separable but related dynamical properties of adaptive systems.
+Together, these argue that behavioral competence and boundary discrimination are separable but related dynamical properties of adaptive systems. The experiments meant to test this have not yet been run in reproducible form.
 
 ## Canonical citation
 

@@ -1,5 +1,7 @@
 # Manuscript Archive: Boundary Recovery Dynamics
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 This directory contains the working monograph as a structured archive of standalone section files for reading, revision, and citation.
 
 ## Working target: Persistent Cognitive Agent (PCA)
@@ -35,6 +37,6 @@ The central project claim is that a system is not truly recovered merely because
 
 ## Scope note
 
-The manuscript remains grounded in empirical machine learning, representation geometry, and adaptive systems theory. It does not treat speculative quantum or cosmological claims as central to the validated argument. Those topics are not part of the core evidence base of the monograph and are intentionally excluded from the primary technical narrative.
+The manuscript remains grounded in empirical machine learning, representation geometry, and adaptive systems theory. It does not treat speculative quantum or cosmological claims as central to the core argument. Those topics are not part of the core evidence base of the monograph and are intentionally excluded from the primary technical narrative.
 
 The original full manuscript remains in the repository root as archival source material. The structured split in this directory is intended to support clearer reading, revision, and iterative formalization of the primary argument.

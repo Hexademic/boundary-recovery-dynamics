@@ -1,5 +1,7 @@
 # 5. Experimental Findings
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](../RESULTS-STATUS.md).
+
 ## 5.1 Three invariant domains
 
 The monograph tests the recovery principle across three qualitatively distinct invariant domains:

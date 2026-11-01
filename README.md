@@ -1,5 +1,7 @@
 # Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction
 
+> **Status (2026-11-01):** the experimental results reported in this monograph are unverified. No code, data or logs exist for them, and the reported statistics do not agree with each other. See [`RESULTS-STATUS.md`](RESULTS-STATUS.md).
+
 ## Overview
 
 Boundary Recovery Dynamics is a formal research program on structural recovery in adaptive neural systems. The project argues that visible task performance is not sufficient evidence of genuine recovery: a model may appear to recover because it reattains output competence while silently degrading the latent invariant structure that governs coherence, causality, and identity-preserving continuity.
@@ -46,6 +48,8 @@ Boundary Recovery Dynamics project. (2026). Boundary Recovery Dynamics: Observab
 - `manuscript/README.md` — manuscript archive and chapter map
 - `paper/README.md` — publication framing and summary
 - `paper/references.bib` — complete thematic bibliography
+- `RESULTS-STATUS.md` — what is and is not verified in the reported results
+- `checks/` — the script that recomputes the reported statistics, and its output
 - `Boundary Recovery Dynamics _261031_151815.txt` — preserved original manuscript source
 - `CITATION.cff` — citation metadata
 - `LICENSE` — repository license
