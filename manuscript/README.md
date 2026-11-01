@@ -13,6 +13,7 @@ This directory is the structured manuscript split into standalone section files 
 - `06-implications.md`
 - `07-conclusion.md`
 - `08-ai-persistence-constraint-framework.md`
+- `09-quantum-persistence-and-survivable-asi.md`
 - `equations.md`
 
 ## Notes
