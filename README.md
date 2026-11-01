@@ -10,23 +10,32 @@ Status: Canonical Monograph
 
 ## Overview
 
-This repository preserves and presents a canonical manuscript on the principle that observability defines recoverability in adaptive neural systems. The work argues that optimization can only repair what observation can see, and that standard behavioral retraining can restore fluent task execution while leaving invariant boundary structure degraded in unobserved null-space coordinates.
+This repository preserves and presents a canonical manuscript investigating a core failure mode in adaptive machine learning: when an agent is catastrophically disrupted and then retrained on valid demonstrations, it can recover fluent task behavior while leaving invariant boundary structure degraded in unobserved coordinates.
+
+The monograph formalizes this phenomenon as Coherent Delusion and argues that the underlying principle is:
+
+Observability defines recoverability.
+
+## Core thesis
+
+- Standard empirical risk minimization repairs what the output projection can observe.
+- Damage stored in blind null-space directions receives no direct restorative gradient.
+- High behavioral performance can coexist with severe degradation of invariant boundary structure.
+- Constraint-guided recovery improves grounded persistence and boundary discrimination.
 
 ## Repository structure
 
 - `README.md` — project landing page
-- `paper/boundary-recovery-dynamics.md` — manuscript summary in structured Markdown
-- `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text as provided
-- `docs/index.md` — project overview and navigation page
+- `paper/README.md` — paper-level index and navigation
+- `paper/boundary-recovery-dynamics.md` — polished manuscript summary
+- `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text
+- `docs/index.md` — documentation overview
 - `CITATION.cff` — citation metadata
 - `LICENSE` — MIT license
 
-## Core thesis
+## Why this matters
 
-- Behavioral competence and boundary grounding are separable dynamical properties.
-- ERM acts only along the observable task Jacobian, leaving blind null-space directions under-constrained.
-- Unobserved coordinates can silently accumulate structural damage after disruption.
-- Constraint-guided reconstruction restores grounded persistence more effectively than behavioral retraining alone.
+The manuscript addresses a foundational issue in modern optimization: evaluating recovery solely on observed task performance can conceal severe degradation in the latent, load-bearing structure of a system. In over-parameterized models, the observation channel is often narrow relative to the parameter space, so the optimization signal fails to fully constrain the system's internal geometry.
 
 ## Citation
 
