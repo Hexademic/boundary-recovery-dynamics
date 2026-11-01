@@ -12,7 +12,7 @@ Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neu
 
 ## Overview
 
-This paper addresses a core representational issue in adaptive systems: when models are disrupted and then retrained on valid demonstrations, output-level competence often recovers much faster than invariant boundary structure. The monograph formalizes this as Coherent Delusion and argues that the root cause is not merely optimization failure but an observability deficit.
+This paper addresses a core representational issue in adaptive systems: when models are disrupted and then retrained on valid demonstrations, output-level competence often recovers much faster than boundary discrimination and latent invariant geometry. The project measures and models this gap as a recoverability problem rather than a simple performance problem.
 
 ## Publication framing
 
@@ -24,6 +24,10 @@ The manuscript is organized around three pillars:
 
 Together, these establish that behavioral competence and boundary discrimination are separable but related dynamical properties of adaptive systems.
 
-## Citation
+## Canonical citation
 
-The Relational Intelligence Working Group. (2026). Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction. Canonical Monograph.
+Boundary Recovery Dynamics project. (2026). Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction. GitHub repository. https://github.com/Hexademic/boundary-recovery-dynamics
+
+## Bibliography
+
+The canonical literature base for the paper is maintained in `references.bib` and includes foundational work in observability, geometric learning, causal representation, robustness evaluation, and statistical diagnostics.
