@@ -1,31 +1,28 @@
-# Boundary Recovery Dynamics
+# Paper Index
 
-## Manuscript Summary
-
-This repository retains the canonical manuscript text for the work:
+## Manuscript
 
 Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction
 
-The document formulates the claim that observability defines recoverability: optimization can only restore what the observation channel is sensitive to. Standard retraining rapidly recovers task fluency while leaving invariant boundary structure degraded in unobserved null-space coordinates.
+## Contents
 
-## Source files
+- `boundary-recovery-dynamics.md` — manuscript summary with abstract, framing, technical sections, and conclusion
+- `references.bib` — bibliography used to ground the monograph in machine learning and representation theory
+- `Boundary Recovery Dynamics _261031_151815.txt` — original plain-text manuscript source as preserved in the repository
 
-- `Boundary Recovery Dynamics _261031_151815.txt` — the original plain-text manuscript
-- `paper/boundary-recovery-dynamics.md` — a Markdown version for reading and archival distribution
+## Overview
 
-## Manuscript themes
+This paper addresses a core representational issue in adaptive systems: when models are disrupted and then retrained on valid demonstrations, output-level competence often recovers much faster than invariant boundary structure. The monograph formalizes this as Coherent Delusion and argues that the root cause is not merely optimization failure but an observability deficit.
 
-- Coherent Delusion
-- observability vs. recoverability
-- null-space geometry
-- invariant boundary discrimination
-- grounded persistence and TIS metrics
-- multi-domain empirical recovery
+## Publication framing
 
-## Related project docs
+The manuscript is organized around three pillars:
 
-- `../README.md` — repository overview
-- `../docs/index.md` — project description and navigation
+1. The generalized observability principle
+2. The geometry of prediction-Jacobian null spaces
+3. A decoupled evaluation protocol for boundary grounding
+
+Together, these establish that behavioral competence and boundary discrimination are separable but related dynamical properties of adaptive systems.
 
 ## Citation
 
