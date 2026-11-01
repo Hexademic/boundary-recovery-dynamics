@@ -10,24 +10,23 @@ Status: Canonical Monograph
 
 ## Overview
 
-This repository contains the canonical manuscript describing the observability hypothesis in adaptive neural systems: optimization can only repair what observation can see. The work formalizes the distinction between task competence and boundary grounding, showing that standard retraining can restore fluent behavior while leaving invariant structure degraded.
+This repository preserves and presents a canonical manuscript on the principle that observability defines recoverability in adaptive neural systems. The work argues that optimization can only repair what observation can see, and that standard behavioral retraining can restore fluent task execution while leaving invariant boundary structure degraded in unobserved null-space coordinates.
 
-## Repository contents
+## Repository structure
 
-- `paper/boundary-recovery-dynamics.md` — the manuscript in structured Markdown
-- `Boundary Recovery Dynamics _261031_151815.txt` — the source manuscript text as provided
+- `README.md` — project landing page
+- `paper/boundary-recovery-dynamics.md` — manuscript summary in structured Markdown
+- `Boundary Recovery Dynamics _261031_151815.txt` — source manuscript text as provided
+- `docs/index.md` — project overview and navigation page
+- `CITATION.cff` — citation metadata
 - `LICENSE` — MIT license
 
 ## Core thesis
 
-- Behavioral fluency is not equivalent to invariant grounding.
-- Empirical risk minimization acts only along the observation Jacobian.
-- Unobserved null-space coordinates accumulate damage without restorative feedback.
-- Constraint-guided reconstruction improves boundary discrimination and grounded persistence.
-
-## Why this matters
-
-The monograph argues that machine learning's central evaluation challenge is an observability problem before it is an optimization problem. Models can appear highly competent while silently degrading their internal boundary structure.
+- Behavioral competence and boundary grounding are separable dynamical properties.
+- ERM acts only along the observable task Jacobian, leaving blind null-space directions under-constrained.
+- Unobserved coordinates can silently accumulate structural damage after disruption.
+- Constraint-guided reconstruction restores grounded persistence more effectively than behavioral retraining alone.
 
 ## Citation
 
@@ -35,4 +34,4 @@ The Relational Intelligence Working Group. (2026). Boundary Recovery Dynamics: O
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This repository is licensed under the MIT License. See `LICENSE` for details.
