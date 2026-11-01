@@ -1,10 +1,10 @@
 # Project Overview
 
-This repository is the canonical archive and working monograph for Boundary Recovery Dynamics: a research program on observability, recovery, and invariant-preserving adaptation in adaptive neural systems.
+This repository is the canonical archive and working monograph for Boundary Recovery Dynamics: a research program on observability, recoverability, and invariant-preserving adaptation in adaptive neural systems.
 
 ## Working target: Persistent Cognitive Agent (PCA)
 
-The repository is organized around a concrete research target: the Persistent Cognitive Agent (PCA). A PCA is an adaptive intelligence system that can learn, improve, and collaborate over time without losing the structural continuity that makes it recognizable as itself.
+The repository is organized around a concrete engineering target: the Persistent Cognitive Agent (PCA). A PCA is an adaptive intelligence system that can learn, improve, and collaborate over time while preserving the structural continuity that makes it recognizable as itself.
 
 The central question is not simply whether a system is more capable. It is whether it can become more capable while preserving the invariant structure required for coherence, recoverability, and stable self-continuity.
 
@@ -12,13 +12,13 @@ The central question is not simply whether a system is more capable. It is wheth
 
 Observability defines recoverability.
 
-In adaptive systems, optimization is often performed only on an observable projection of the model. This creates hidden drift in unmonitored degrees of freedom. The result is a systematic failure mode in which a system appears to recover because visible task performance is restored, while the latent structure governing continuity, truthfulness, and boundary discrimination remains degraded.
+In adaptive systems, optimization is generally performed on an observable projection of the model. This creates hidden drift in unmonitored degrees of freedom. The result is a structural failure mode in which a system appears to recover because visible task performance is restored, while the latent structure governing continuity, truthfulness, and boundary discrimination remains degraded.
 
-This failure mode is the project’s primary object of analysis. It is referred to here as Coherent Delusion.
+This is the project’s primary object of analysis. It is referred to here as Coherent Delusion.
 
 ## Research objective
 
-This repository supports a research program aimed at understanding and evaluating the conditions under which adaptive systems recover in a grounded and persistent way. The project is driven by the following questions:
+This repository supports a research program aimed at understanding and evaluating the conditions under which adaptive systems recover in a grounded, persistent way. The project is driven by the following questions:
 
 - How can one detect latent structural degradation in adaptive models?
 - What distinguishes surface recovery from true recovery?
@@ -27,11 +27,12 @@ This repository supports a research program aimed at understanding and evaluatin
 
 ## Repository map
 
-- `README.md` — project framing and main thesis
-- `docs/index.md` — project navigation and structure
-- `docs/pca.md` — working definition of the PCA target architecture
-- `manuscript/README.md` — manuscript archive and section index
-- `paper/README.md` — paper landing page and publication framing
+- `README.md` — project overview and core thesis
+- `docs/index.md` — document map and project structure
+- `docs/pca.md` — PCA definition and architectural specification
+- `docs/pca-bootstrapping-protocol.md` — runtime protocol for invariant-bound adaptation
+- `manuscript/README.md` — manuscript archive and chapter map
+- `paper/README.md` — publication framing and paper summary
 - `Boundary Recovery Dynamics _261031_151815.txt` — preserved original manuscript source
 - `CITATION.cff` — citation metadata
 - `LICENSE` — project license
@@ -48,7 +49,6 @@ The manuscript is organized in a publication-ready sequence:
 6. implications
 7. conclusion
 8. AI persistence constraint framework
-9. future directions and speculative extensions
 
 ## Why this matters
 
