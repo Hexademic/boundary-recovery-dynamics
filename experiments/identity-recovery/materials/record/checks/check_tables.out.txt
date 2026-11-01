@@ -1,0 +1,24 @@
+Table 5: Arm 1 (consistency null step) vs Arm 2 (mean of 30 random null steps), 5 seeds
+  from the table: d = [14.13 15.27 13.6  14.1  14.2 ], mean 14.2600, s_d 0.6127, SE 0.2740, t(4) 52.04, two-sided p 8.16e-07
+  as reported:    mean 14.2600, s_d 0.7021, SE 0.3140, t(4) 45.4140, p 7.108e-06
+  p for the reported t(4) = 45.414: two-sided 1.406e-06, one-sided 7.03e-07
+
+Table 5: lawful-recall non-inferiority (margin -2.0 pp), as reported: d -0.20, 95% CI [-0.8841, +0.4841], t_NI 7.3485, p 8.891e-04
+  SE implied by the CI: 0.24639  ->  t_NI 7.3054
+  SE implied by t_NI:   0.24495  ->  CI half-width 0.6801
+  p for t_NI = 7.3485, one-sided: 0.0009131
+
+Table 1: advantage I_R as mean +/- sd over N = 15 paired runs (a paired t-test has df = 14)
+  physics  t(14) =    54.8, two-sided p = 9.66e-18   (reported p = 1.12e-16)
+  ARC      t(14) =   136.0, two-sided p = 2.96e-23   (reported p = 2.14e-22)
+  STRIPS   t(14) =   171.5, two-sided p = 1.16e-24   (reported p = 7.82e-24)
+
+Table 4: regression t-statistics with df = 92
+  S_param   t =  1.08: two-sided p = 0.283   (reported 0.2829)
+  I_HSIC    t =  1.39: two-sided p = 0.1679   (reported 0.1679)
+  lambda_2  t =  0.57: two-sided p = 0.5701   (reported 0.5699)
+  Rank_ctrl t =  0.84: two-sided p = 0.4031   (reported 0.4031)
+  H_graph   t = -1.71: two-sided p = 0.09064   (reported 0.0906)
+  D_eff     t = -1.12: two-sided p = 0.2656   (reported 0.2657)
+  INCD      t = -5.59: two-sided p = 2.304e-07   (reported 2.18e-07)
+  F from R^2 = 0.741: 37.60 (reported 37.60), p = 2.35e-24 (reported 1.34e-23)

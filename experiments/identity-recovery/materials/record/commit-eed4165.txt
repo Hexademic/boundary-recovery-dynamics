@@ -1,0 +1,21 @@
+commit eed4165ef8d3119640f3aa1126731c6252cc7526
+Author: Claude <noreply@anthropic.com>
+Date:   Sun Nov 1 10:30:21 2026 -0600
+
+Mark the reported results as unverified
+
+The monograph reports five tables of results, but no code, data or logs
+exist for them, and the tables' own numbers disagree: Table 5's per-seed
+values give t(4) = 52.0, not 45.41; Table 1's p-values are off by 7 to
+12 times from t-tests on the means printed beside them; the abstract's
+p < 10^-15 "across all architectures" contradicts Table 3.
+
+- RESULTS-STATUS.md sets out what agrees, what does not, what the theory
+  does and does not establish, and the related work it should engage.
+- checks/check_tables.py recomputes the statistics; its output is saved.
+- Every file that summarizes the results now points to the status note.
+  The preserved source manuscript is left as it was.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RiBi7zCnUqzYuNLBXzzQnL
+
