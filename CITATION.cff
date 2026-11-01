@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this monograph in your work, please cite it as below."
+title: "Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction"
+authors:
+  - family-names: Relational Intelligence Working Group
+    given-names: ""
+abstract: >-
+  Canonical monograph on observability, recoverability, and boundary recovery
+  dynamics in adaptive neural systems. The work formalizes the claim that
+  optimization can only repair what observation can see, and that behavioral
+  retraining can leave invariant boundary structure degraded in unobserved
+  null-space coordinates.
+version: 1.0.0
+url: "https://github.com/Hexademic/boundary-recovery-dynamics"
+repository-code: "https://github.com/Hexademic/boundary-recovery-dynamics"
+license: MIT
+keywords:
+  - machine learning
+  - observability
+  - adaptive systems
+  - invariant structure
+  - boundary recovery
+  - null space
+  - representation geometry
