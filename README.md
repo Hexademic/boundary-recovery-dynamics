@@ -61,7 +61,3 @@ The primary literature used throughout the monograph is available in the project
 - `paper/references.bib`
 
 This file is the canonical citation source for the manuscript, and it reflects the actual methodological foundations of the project rather than ancillary or speculative references.
-
-## Citation
-
-The Relational Intelligence Working Group. (2026). Boundary Recovery Dynamics: Observability Defines Recoverability in Adaptive Neural Reconstruction. Canonical Monograph.
